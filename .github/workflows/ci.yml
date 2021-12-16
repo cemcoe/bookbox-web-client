@@ -29,5 +29,5 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         source: "dist/"
-        target: "/root/workplace/"
+        target: "/root/workplace/bookbox-web-client/dist/"
         strip_components: 1
