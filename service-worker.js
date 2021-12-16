@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.cc0a09d82b9db337f4e14900a03c2af7.js"
+  "precache-manifest.239d90ee8edd132b8604bb650763473b.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "bookbox-web-client"});
