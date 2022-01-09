@@ -8,7 +8,7 @@
 
 <script setup>
 import { ref, onMounted, reactive } from 'vue'
-import { request } from '@/network/request.js'
+import { getUsersList } from '@/network/user.js'
 // const name = ref('cemcoe')
 let postList = ref([])
 // let data = reactive({
@@ -34,7 +34,7 @@ onMounted(async () => {
   // })
 
   // 要小心，一不小心就丢失了响应式
-  postList.value = await request('/v1/users', { method: "GET" })
+  postList.value = await getUsersList()
 
 })
 
