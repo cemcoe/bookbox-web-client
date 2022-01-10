@@ -3,6 +3,14 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 import store from './store'
-import { Button } from 'vant';
+import { 
+  Button,
+  Tabbar,
+  TabbarItem,
+} from 'vant';
 
-createApp(App).use(Button).use(store).use(router).mount('#app')
+createApp(App)
+.use(Button)
+.use(Tabbar)
+.use(TabbarItem)
+.use(store).use(router).mount('#app')
