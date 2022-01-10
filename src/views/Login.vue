@@ -1,15 +1,42 @@
 <template>
   <div class="login">
-    login
-    <van-button type="primary">登录</van-button>
+    <form>
+      <cell-group inset>
+        <field v-model="user.name" name="用户名" label="用户名" placeholder="用户名" />
+        <field v-model="user.password" type="password" name="密码" label="密码" placeholder="密码" />
+      </cell-group>
+      <div style="margin: 16px;">
+        <van-button round block type="primary" @click="onSubmit">登陆</van-button>
+      </div>
+    </form>
   </div>
 </template>
 
 <script setup>
 // <script setup> 范围里的值也能被直接作为自定义组件的标签名使用
+import { Form, Field, CellGroup } from 'vant';
+import { reactive } from 'vue';
+import { login } from 'network/user.js'
+
+const user = reactive({
+  name: '',
+  password: '',
+})
 
 
+const onSubmit = async () => {
+  // TODO: 参数校验
+  console.log('submit', user);
+  const result = await login(user)
+  const { status } = result
+  if (status === 200) {
+    const { token } = result.data
+    localStorage.setItem('token', token)
+    // TODO: 请求用户信息保存本地并跳转到首页
 
-
+  } else {
+    // TODO: 登录失败
+  }
+};
 
 </script>
