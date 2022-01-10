@@ -7,7 +7,7 @@
             <div class="avator">头像</div>
           </Col>
           <Col class="info" span="12" @click="goToLogin">
-            <div class="name">登录</div>
+            <div class="name">{{ user.name ? user.name : '登录' }}</div>
             <div class="number">
               <span class="attention">关注 0</span>
               <span class="fans">粉丝 0</span>
@@ -32,16 +32,34 @@
 </template>
 
 <script setup>
+import { onMounted, reactive } from 'vue'
 import { Grid, GridItem } from 'vant';
 import { Col, Row } from 'vant';
 import { Divider } from 'vant';
 
 import { useRouter } from 'vue-router'
+import { getOwnerInfo } from '../../network/user';
 const router = useRouter()
 
 const goToLogin = () => {
   router.push('/login')
 }
+
+
+let user = reactive({
+  name: '',
+})
+
+onMounted(async () => {
+  const result = await getOwnerInfo()
+  // console.log(result)
+  const { status } = result
+
+  if (status === 200) {
+    // user = result.data // 此操作会丢失响应式
+    user.name = result.data.name
+  }
+})
 
 </script>
 

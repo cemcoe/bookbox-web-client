@@ -13,3 +13,11 @@ export function login(user) {
     { method: "POST", data: user },
   )
 }
+
+// 获取登录用户信息
+export function getOwnerInfo() {
+  return request(
+    '/v1/owner',
+    { method: "GET" }
+  )
+}
