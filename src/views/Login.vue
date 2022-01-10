@@ -17,12 +17,14 @@
 import { Form, Field, CellGroup } from 'vant';
 import { reactive } from 'vue';
 import { login } from 'network/user.js'
+import { useRouter } from 'vue-router'
 
 const user = reactive({
   name: '',
   password: '',
 })
 
+const router = useRouter()
 
 const onSubmit = async () => {
   // TODO: 参数校验
@@ -34,6 +36,7 @@ const onSubmit = async () => {
     localStorage.setItem('token', token)
     // TODO: 请求用户信息保存本地并跳转到首页
 
+    router.back()
   } else {
     // TODO: 登录失败
   }
