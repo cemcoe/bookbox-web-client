@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
+import Attention from '../views/Attention/Attention.vue'
+import Excellent from '../views/Excellent/Excellent.vue'
+import Message from '../views/Message/Message.vue'
 import Login from '../views/Login.vue'
 import Profile from '../views/Profile/Profile.vue'
 
@@ -9,6 +12,21 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/attention',
+    name: 'Attention',
+    component: Attention
+  },
+  {
+    path: '/excellent',
+    name: 'Excellent',
+    component: Excellent
+  },
+  {
+    path: '/message',
+    name: 'Message',
+    component: Message
   },
   {
     path: '/login',
