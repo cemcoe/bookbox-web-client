@@ -36,8 +36,11 @@ import { Grid, GridItem } from 'vant';
 import { Col, Row } from 'vant';
 import { Divider } from 'vant';
 
+import { useRouter } from 'vue-router'
+const router = useRouter()
+
 const goToLogin = () => {
-  console.log('gotoLogin')
+  router.push('/login')
 }
 
 </script>
