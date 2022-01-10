@@ -1,6 +1,6 @@
 <template>
   <div class="tab-bar">
-    <van-tabbar v-model="active">
+    <van-tabbar route>
       <van-tabbar-item icon="wap-home-o" replace to="/">首页</van-tabbar-item>
       <van-tabbar-item icon="like-o" replace to="/attention">关注</van-tabbar-item>
       <van-tabbar-item icon="fire-o" replace to="/excellent">优选</van-tabbar-item>
@@ -11,8 +11,6 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-const active = ref(0);
 
 
 
