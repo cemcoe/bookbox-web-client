@@ -1,8 +1,11 @@
 <template>
   <div class="editor">
     <!-- <div class="editor-header" @click="publish">保存</div> -->
-    <editor-header :isNewPost="true" @goBack="goBack" @publish="publish"></editor-header>
-    <div class="content">
+    <editor-header :isNewPost="true" @goBack="goBack" @publish="publish" @preview="preview"></editor-header>
+    <div class="preview" v-show="state.isPreview">
+      <div v-html="state.previewContent"></div>
+    </div>
+    <div class="content" v-show="!state.isPreview">
       <input v-model="post.title" type="text" id="title" placeholder="请输入标题" />
       <textarea v-model="post.content" name="post" id="post" placeholder="请输入正文"></textarea>
     </div>
@@ -17,6 +20,10 @@ import { useRouter } from 'vue-router';
 import { createPost } from '../../network/post';
 import EditorHeader from './EditorHeader.vue'
 
+// marked 4 更改了引入方式，marked 1 (import marked from "marked";)
+// https://marked.js.org/#usage 解析方式也发生了变化
+import { marked } from "marked";
+
 const router = useRouter()
 
 const post = reactive({
@@ -24,13 +31,30 @@ const post = reactive({
   content: '',
 })
 
+const state = reactive({
+  isPreview: false,
+  previewContent: "",
+})
+
 const goBack = () => {
-  router.back()
+  // 如果在预览状态下点击，则切换为编辑状态
+  // 如果是编辑状态，则路由切换
+  if (state.isPreview) {
+    state.isPreview = false;
+  } else {
+    router.back();
+  }
 };
 
 const publish = async () => {
   const result = await createPost(post)
   console.log(result)
+}
+
+const preview = () => {
+  state.isPreview = true;
+  // console.log(marked, 'marked')
+  state.previewContent = marked.parse(post.content);
 }
 
 </script>
@@ -63,5 +87,9 @@ const publish = async () => {
   /* 剪掉头和尾以及title高度 */
   padding: 8px;
   box-sizing: border-box;
+}
+
+.preview {
+  margin-top: 44px;
 }
 </style>

@@ -14,7 +14,6 @@
 
 <script>
 export default {
-  name: "EditorHeader",
   emits: ["goBack", "preview", "publish", "update"],
   props: {
     isNewPost: {
