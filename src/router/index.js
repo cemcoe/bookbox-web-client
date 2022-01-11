@@ -11,32 +11,47 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: {
+      showTabbar: true
+    }
   },
   {
     path: '/attention',
     name: 'Attention',
-    component: Attention
+    component: Attention,
+    meta: {
+      showTabbar: true
+    }
   },
   {
     path: '/excellent',
     name: 'Excellent',
-    component: Excellent
+    component: Excellent,
+    meta: {
+      showTabbar: true
+    }
   },
   {
     path: '/message',
     name: 'Message',
-    component: Message
+    component: Message,
+    meta: {
+      showTabbar: true
+    }
+  },
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: Profile,
+    meta: {
+      showTabbar: true
+    }
   },
   {
     path: '/login',
     name: 'Login',
     component: Login
-  },
-  {
-    path: '/profile',
-    name: 'Profile',
-    component: Profile
   },
   {
     path: '/editor',
