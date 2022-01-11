@@ -6,3 +6,11 @@ export function getPostList() {
     { method: "GET" }
   )
 }
+
+// 创建文章
+export function createPost(post) {
+  return request(
+    '/v1/post',
+    { method: "POST", data: post },
+  )
+}

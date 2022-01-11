@@ -5,7 +5,7 @@ import Excellent from '../views/Excellent/Excellent.vue'
 import Message from '../views/Message/Message.vue'
 import Login from '../views/Login.vue'
 import Profile from '../views/Profile/Profile.vue'
-
+import Editor from '../views/Editor/Editor.vue'
 
 const routes = [
   {
@@ -37,6 +37,11 @@ const routes = [
     path: '/profile',
     name: 'Profile',
     component: Profile
+  },
+  {
+    path: '/editor',
+    name: 'Editor',
+    component: Editor
   },
   {
     path: '/about',
