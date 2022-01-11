@@ -8,8 +8,7 @@
 
 <script setup>
 import { ref, onMounted, reactive } from 'vue'
-import { getUsersList } from '@/network/user.js'
-import { getPostList } from '../network/post'
+import { getPostList } from '@/network/post'
 
 
 // const name = ref('cemcoe')
