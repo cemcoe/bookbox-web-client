@@ -1,40 +1,41 @@
 <template>
   <div class="editor">
-    <div class="editor-header" @click="publish">
-      保存
-    </div>
+    <!-- <div class="editor-header" @click="publish">保存</div> -->
+    <editor-header :isNewPost="true" @goBack="goBack" @publish="publish"></editor-header>
     <div class="content">
       <input v-model="post.title" type="text" id="title" placeholder="请输入标题" />
       <textarea v-model="post.content" name="post" id="post" placeholder="请输入正文"></textarea>
     </div>
   </div>
-  <div class="editor-pannel">
-    pannel
-  </div>
+  <div class="editor-pannel">pannel</div>
 </template>
 
 
 <script setup>
 import { reactive } from 'vue';
+import { useRouter } from 'vue-router';
 import { createPost } from '../../network/post';
+import EditorHeader from './EditorHeader.vue'
 
+const router = useRouter()
 
 const post = reactive({
   title: '',
   content: '',
 })
 
-const publish = async() => {
+const goBack = () => {
+  router.back()
+};
+
+const publish = async () => {
   const result = await createPost(post)
   console.log(result)
-  
 }
-
 
 </script>
 
 <style>
-
 .content {
   margin-top: 44px;
   margin-bottom: 49px;
@@ -63,6 +64,4 @@ const publish = async() => {
   padding: 8px;
   box-sizing: border-box;
 }
-
-
 </style>
