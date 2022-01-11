@@ -1,4 +1,6 @@
-const BASE_URL = 'https://api.cemcoe.com'
+// const BASE_URL = 'https://api.cemcoe.com'
+import { BASE_URL } from '../../config/global.js'
+
 
 // Example POST method implementation:
 export async function request(url = '', options = {}) {
