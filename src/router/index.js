@@ -6,6 +6,8 @@ import Message from '../views/Message/Message.vue'
 import Login from '../views/Login.vue'
 import Profile from '../views/Profile/Profile.vue'
 import Editor from '../views/Editor/Editor.vue'
+import User from '../views/User/User.vue'
+import Post from '../views/Post/Post.vue'
 
 const routes = [
   {
@@ -57,6 +59,16 @@ const routes = [
     path: '/editor',
     name: 'Editor',
     component: Editor
+  },
+  {
+    path: '/u/:id',
+    name: 'User',
+    component: User,
+  },
+  {
+    path: '/p/:id',
+    name: 'Post',
+    component: Post,
   },
   {
     path: '/about',
