@@ -10,7 +10,7 @@
       <textarea v-model="post.content" name="post" id="post" placeholder="请输入正文"></textarea>
     </div>
   </div>
-  <div class="editor-pannel">pannel</div>
+  <editor-pannel @insert="insert"></editor-pannel>
 </template>
 
 
@@ -19,7 +19,8 @@ import { reactive } from 'vue';
 import { useRouter } from 'vue-router';
 import { createPost } from '../../network/post';
 import EditorHeader from './EditorHeader.vue'
-
+import EditorPannel from './EditorPannel.vue';
+import useInsertText from "./useInsertText.js";
 // marked 4 更改了引入方式，marked 1 (import marked from "marked";)
 // https://marked.js.org/#usage 解析方式也发生了变化
 import { marked } from "marked";
@@ -49,6 +50,10 @@ const goBack = () => {
 const publish = async () => {
   const result = await createPost(post)
   console.log(result)
+  const { status } = result
+  if (status === 200) {
+    router.back()
+  }
 }
 
 const preview = () => {
@@ -56,6 +61,12 @@ const preview = () => {
   // console.log(marked, 'marked')
   state.previewContent = marked.parse(post.content);
 }
+
+const insert = (value) => {
+  console.log("insert", value);
+  const dom = document.querySelector("#post");
+  useInsertText(dom, value);
+};
 
 </script>
 
