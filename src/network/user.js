@@ -21,3 +21,11 @@ export function getOwnerInfo() {
     { method: "GET" }
   )
 }
+
+// 获取用户信息
+export function getUserInfoAPI(id) {
+  return request(
+    `/v1/user/${id}`,
+    { method: "GET" }
+  )
+}
