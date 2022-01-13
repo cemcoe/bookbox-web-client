@@ -14,3 +14,13 @@ export function createPost(post) {
     { method: "POST", data: post },
   )
 }
+
+
+
+// 获取文章详情
+export function getPostDetailAPI(id) {
+  return request(
+    `/v1/post/${id}`,
+    { method: "GET" }
+  )
+}
