@@ -1,17 +1,6 @@
 <template>
   <div class="home">
-    <!-- <ul>
-      <li v-for="post in postList">{{ post }}---</li>
-    </ul>-->
-    <div class="post-list">
-      <div class="post-item" v-for="post in postList">
-        <router-link :to="'/u/' + post.authorId">{{ post.authorName }}</router-link>
-        <router-link :to="'/p/' + post.id">
-          <div class="title">{{ post.title }}</div>
-          <div class="abstract">{{ post.abstract }}</div>
-        </router-link>
-      </div>
-    </div>
+    <bx-post-list :postList="postList"></bx-post-list>
     <div class="write">
       <router-link to="/editor">写</router-link>
     </div>
@@ -22,6 +11,8 @@
 <script setup>
 import { ref, onMounted, reactive } from 'vue'
 import { getPostList } from '@/network/post'
+
+import BxPostList from 'components/content/PostList/PostList'
 
 
 // const name = ref('cemcoe')
@@ -85,17 +76,5 @@ onMounted(async () => {
   height: 100%;
   display: block;
   color: #fff;
-}
-
-.post-item {
-   padding: 16px 8px;
-  box-sizing: content-box;
-  margin-bottom: 12px;
-  box-shadow: 4px 4px 6px rgb(228, 225, 225);
-}
-
-.abstract {
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 </style>
