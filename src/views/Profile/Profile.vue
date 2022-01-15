@@ -42,11 +42,14 @@ import { getOwnerInfo } from '../../network/user';
 const router = useRouter()
 
 const goToLogin = () => {
-  router.push('/login')
+  // 检查是否拿到用户信息，如果已经登录跳转到对应的用户页面
+  const path = user.id ? '/u/' + user.id : '/login'
+  router.push(path)
 }
 
 
 let user = reactive({
+  id: 0,
   name: '',
 })
 
@@ -58,6 +61,7 @@ onMounted(async () => {
   if (status === 200) {
     // user = result.data // 此操作会丢失响应式
     user.name = result.data.name
+    user.id = result.data.id
   }
 })
 
