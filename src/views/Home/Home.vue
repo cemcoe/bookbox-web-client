@@ -1,5 +1,7 @@
 <template>
   <div class="home">
+    <Search placeholder="请输入搜索关键词" @click-input="$router.push('/search')" />
+
     <bx-post-list :postList="postList"></bx-post-list>
     <div class="write">
       <router-link to="/editor">写</router-link>
@@ -12,8 +14,9 @@
 import { ref, onMounted, reactive } from 'vue'
 import { getPostList } from '@/network/post'
 
-import BxPostList from 'components/content/PostList/PostList'
+import { Search } from 'vant';
 
+import BxPostList from 'components/content/PostList/PostList'
 
 // const name = ref('cemcoe')
 let postList = ref([])

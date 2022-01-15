@@ -8,6 +8,7 @@ import Profile from '../views/Profile/Profile.vue'
 import Editor from '../views/Editor/Editor.vue'
 import User from '../views/User/User.vue'
 import Post from '../views/Post/Post.vue'
+import Search from '../views/Search/Search.vue'
 
 const routes = [
   {
@@ -69,6 +70,10 @@ const routes = [
     path: '/p/:id',
     name: 'Post',
     component: Post,
+  },
+  {
+    path: '/Search',
+    component: Search,
   },
   {
     path: '/about',
