@@ -1,6 +1,6 @@
 // const BASE_URL = 'https://api.cemcoe.com'
 import { BASE_URL } from '../../config/global.js'
-
+import router from '../router'
 
 // Example POST method implementation:
 export async function request(url = '', options = {}) {
@@ -45,6 +45,13 @@ export async function request(url = '', options = {}) {
       body: JSON.stringify(options.data) // body data type must match "Content-Type" header
     });
 
+  }
+
+  if (response.status === 401) {
+    console.log('未授权')
+    // TODO: 页面跳转，更加友好的弹窗提醒
+    router.push('/login')
+    // TOOD: 其他状态码的拦截
   }
 
   return response.json(); // parses JSON response into native JavaScript objects
