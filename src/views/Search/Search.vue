@@ -3,9 +3,7 @@
 
   <Search placeholder="请输入搜索关键词" v-model="key" @search="onSearch" @cancel="onCancel" />
 
-  <div class="result">
-    {{key}}
-  </div>
+  <div class="result">{{ key }}</div>
 </template>
 
 
