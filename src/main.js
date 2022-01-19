@@ -9,6 +9,8 @@ import {
   TabbarItem,
 } from 'vant';
 
+import './assets/css/reset.css'
+
 createApp(App)
 .use(Button)
 .use(Tabbar)
