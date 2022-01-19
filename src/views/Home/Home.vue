@@ -2,9 +2,7 @@
   <div class="home">
     <nav-bar></nav-bar>
     <bx-post-list :postList="postList"></bx-post-list>
-    <div class="write">
-      <router-link to="/editor">写</router-link>
-    </div>
+    <go-to-write-button />
   </div>
 </template>
 
@@ -13,6 +11,7 @@
 import { ref, onMounted, reactive } from 'vue'
 import { getPostList } from '@/network/post'
 import NavBar from './components/HomeNavBar.vue'
+import GoToWriteButton from './components/GoToWriteButton.vue'
 import BxPostList from 'components/content/PostList/PostList'
 
 // const name = ref('cemcoe')
@@ -54,27 +53,3 @@ onMounted(async () => {
 })
 
 </script>
-
-<style>
-.write {
-  position: fixed;
-  width: 40px;
-  height: 40px;
-  right: 50px;
-  bottom: 80px;
-  border-radius: 50%;
-  /* background-color: rgb(236, 221, 221); */
-  background-color: #fff;
-  line-height: 40px;
-  text-align: center;
-  padding: 10px;
-  /* box-shadow: 0 0 40px rgb(8, 8, 8); */
-  box-shadow: 4px 4px 6px rgb(228, 225, 225);
-}
-.write a {
-  width: 100%;
-  height: 100%;
-  display: block;
-  color: #fff;
-}
-</style>
