@@ -7,7 +7,7 @@
         <p>{{ post.authorName }}</p>
       </div>
       <article>
-        <div v-html="previewContent"></div>
+        <div class="post-content" v-html="previewContent"></div>
       </article>
     </div>
   </div>
@@ -40,12 +40,23 @@ onMounted(getPostDetail())
 
 
 <style scoped>
+.title {
+  color: #000;
+  font-size: 20px;
+  padding-top: 20px;
+}
+
+.author {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
 .post-box {
   padding: 10px;
 }
 
-.artile {
-  line-height: 40px;
+.post-content {
+  line-height: 26px;
 }
 </style>
 
