@@ -1,6 +1,6 @@
 <template>
   <div class="post">
-    <NavBar title="文章" left-arrow @click-left="onClickLeft" />
+    <post-nav-bar />
     <div class="post-box">
       <h1 class="title">{{ post.title }}</h1>
       <div class="author">
@@ -18,8 +18,7 @@
 import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { getPostDetailAPI } from '../../network/post';
-import { NavBar } from 'vant';
-const onClickLeft = () => history.back();
+import PostNavBar from './components/PostNavBar.vue'
 import { marked } from "marked";
 
 

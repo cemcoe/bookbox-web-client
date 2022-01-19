@@ -57,8 +57,11 @@ const routes = [
     component: Login
   },
   {
+    path: '/editor/:pid',
+    component: Editor
+  },
+  {
     path: '/editor',
-    name: 'Editor',
     component: Editor
   },
   {
