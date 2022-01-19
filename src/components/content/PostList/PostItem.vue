@@ -2,7 +2,7 @@
   <div class="post-item">
     <div class="author" v-if="author">
       <div class="author-avatar">
-        <img src="" alt="avatar">
+        <!-- <img src="" alt="avatar"> -->
       </div>
       <div class="author-name">
         <router-link :to="'/u/' + post.authorId">{{ post.authorName }}</router-link>
@@ -75,14 +75,19 @@ const props = defineProps({
   /* background-color: #ccc; */
   font-size: 18px;
   font-weight: 700;
-  padding-top: 8px;
+  padding-top: 12px;
   padding-bottom: 8px;
+}
+
+.title a {
+  color: #000;
 }
 
 .abstract {
   padding-top: 10px;
   padding-bottom: 10px;
   font-size: 14px;
+  line-height: 30px;
 }
 
 .meta {
