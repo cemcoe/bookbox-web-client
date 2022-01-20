@@ -1,7 +1,12 @@
 <template>
   <div class="editor">
     <!-- <div class="editor-header" @click="publish">保存</div> -->
-    <editor-header :isNewPost="true" @goBack="goBack" @publish="publish" @preview="preview"></editor-header>
+    <editor-header
+      :isNewPost="pid ? false : true"
+      @goBack="goBack"
+      @publish="publish"
+      @preview="preview"
+    ></editor-header>
     <div class="preview" v-show="state.isPreview">
       <div v-html="state.previewContent"></div>
     </div>
@@ -15,9 +20,9 @@
 
 
 <script setup>
-import { reactive } from 'vue';
-import { useRouter } from 'vue-router';
-import { createPost } from '../../network/post';
+import { onMounted, reactive } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
+import { createPost, getPostDetailAPI } from 'network/post';
 import EditorHeader from './EditorHeader.vue'
 import EditorPannel from './EditorPannel.vue';
 import useInsertText from "./useInsertText.js";
@@ -26,6 +31,18 @@ import useInsertText from "./useInsertText.js";
 import { marked } from "marked";
 
 const router = useRouter()
+const route = useRoute()
+const { pid } = route.params
+
+const getPostDetail = async (pid) => {
+  const result = await getPostDetailAPI(pid)
+  const { status } = result
+  if (status === 200) {
+    return result.data.post
+    // post.value = result.data.post
+    // previewContent.value = marked.parse(result.data.post.content)
+  }
+}
 
 const post = reactive({
   title: '',
@@ -67,6 +84,21 @@ const insert = (value) => {
   const dom = document.querySelector("#post");
   useInsertText(dom, value);
 };
+
+
+const init = async (pid) => {
+  // 检查是否是新文章，如果带参数，则要根据pid查文章内容
+  if (pid) {
+    // 根据pid找文章内容
+    const result = await getPostDetail(pid)
+    post.title = result.title
+    post.content = result.content
+  } else {
+    // 新文章啥也不干
+  }
+}
+
+onMounted(init(pid))
 
 </script>
 
