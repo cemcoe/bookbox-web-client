@@ -6,6 +6,7 @@
       @goBack="goBack"
       @publish="publish"
       @preview="preview"
+      @update="update"
     ></editor-header>
     <div class="preview" v-show="state.isPreview">
       <div v-html="state.previewContent"></div>
@@ -22,7 +23,7 @@
 <script setup>
 import { onMounted, reactive } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
-import { createPost, getPostDetailAPI } from 'network/post';
+import { createPost, getPostDetailAPI, updatePostApi } from 'network/post';
 import EditorHeader from './EditorHeader.vue'
 import EditorPannel from './EditorPannel.vue';
 import useInsertText from "./useInsertText.js";
@@ -72,6 +73,16 @@ const publish = async () => {
     router.back()
   }
 }
+
+const update = async () => {
+  const result = await updatePostApi(pid, post)
+  console.log(result, 'update')
+  const { status } = result
+  if (status === 200) {
+    router.back()
+  }
+}
+
 
 const preview = () => {
   state.isPreview = true;

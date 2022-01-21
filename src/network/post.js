@@ -24,3 +24,12 @@ export function getPostDetailAPI(id) {
     { method: "GET" }
   )
 }
+
+// 更新文章
+export function updatePostApi(id, post) {
+  console.log(id, post, 'resuest')
+  return request(
+    `/v1/post/${id}`,
+    { method: "PUT", data: post }
+  )
+}
