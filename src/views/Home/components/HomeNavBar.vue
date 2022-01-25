@@ -1,7 +1,9 @@
 <template>
   <nav-bar>
     <template v-slot:left>
-      <a href="https://github.com/cemcoe/book-web-client">cemcoe</a>
+      <a href="https://github.com/cemcoe/bookbox-web-client">
+        <img src="./GitHub-Mark-64px.png" />
+      </a>
     </template>
     <template v-slot:center>
       <router-link to="/search">
@@ -9,9 +11,9 @@
       </router-link>
     </template>
     <template v-slot:right>
-      <div>
-        <router-link :to="'/login'" replace class="login">登录|注册</router-link>
-      </div>
+      <a href="https://github.com/cemcoe/bookbox-web-client">
+        <img src="./GitHub-Mark-64px.png" />
+      </a>
     </template>
   </nav-bar>
 </template>
@@ -23,14 +25,20 @@ import NavBar from 'components/content/NavBar/NavBar.vue'
 
 <style scoped>
 .search-button {
-  width: 90%;
+  width: 100%;
   border: 0px;
-  border-radius: 6px;
-  padding: 6px;
+  border-radius: 2px;
+
+
+  padding: 8px;
   outline-style: none;
-  text-align: center;
-  background-color: rgb(243, 237, 237);
+  text-align: left;
+  background-color: rgb(250, 243, 243);
   font-size: 12px;
-  letter-spacing: 2px;
+  letter-spacing: 4px;
+}
+
+img {
+  width: 30px;
 }
 </style>

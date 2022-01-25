@@ -1,6 +1,5 @@
 <template>
-  <div class="container">
-    <div class="nav-bar">
+  <div class="nav-bar">
       <div class="left">
         <slot name="left"></slot>
       </div>
@@ -11,23 +10,18 @@
         <slot name="right"></slot>
       </div>
     </div>
-  </div>
 </template>
 
-<script>
-export default {
-  name: "NavBar",
-};
+<script setup>
+
 </script>
 
 <style scoped>
-.container {
-  height: 44px;
-}
 .nav-bar {
-  display: flex;
   width: 100%;
   height: 44px;
+  overflow: hidden;
+  display: flex;
   text-align: center;
   align-items: center;
   background-color: #fff;
@@ -35,7 +29,7 @@ export default {
 
 .left,
 .right {
-  width: 80px;
+  width: 60px;
 }
 
 .center {
