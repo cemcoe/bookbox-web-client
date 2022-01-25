@@ -5,7 +5,7 @@
       <!-- {{ props.leftArrow }} -->
       <!-- 你如果给我了值那么，left就展示的是返回的功能, 下面的同理 -->
       <slot name="left" v-if="!props.leftArrow"></slot>
-      <div class="back" @click="history.back()" v-else>回</div>
+      <div class="back" @click="$router.back()" v-else>回</div>
     </div>
     <div class="center">
       <slot v-if="!props.title" name="center"></slot>

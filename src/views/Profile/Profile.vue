@@ -1,5 +1,6 @@
 <template>
   <div class="profile">
+    <NavBar title="我的"></NavBar>
     <div class="user-info-container">
       <div class="user-info">
         <Row>
@@ -36,6 +37,8 @@ import { onMounted, reactive } from 'vue'
 import { Grid, GridItem } from 'vant';
 import { Col, Row } from 'vant';
 import { Divider } from 'vant';
+import NavBar from 'components/content/NavBar/NavBar.vue'
+
 
 import { useRouter } from 'vue-router'
 import { getOwnerInfo } from '../../network/user';
@@ -75,7 +78,7 @@ onMounted(async () => {
 }
 .user-info-container {
   background-color: #fff;
-  margin: 20px 10px;
+  margin: 0px 10px 20px;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 0 4px rgb(236, 233, 233);
