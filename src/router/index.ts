@@ -4,6 +4,8 @@ import Attention from '../views/Attention/Attention.vue'
 import Excellent from '../views/Excellent/Excellent.vue'
 import Message from '../views/Message/Message.vue'
 import Profile from '../views/Profile/Profile.vue'
+import User from '../views/User/User.vue'
+import Post from '../views/Post/Post.vue'
 
 import Login from '../views/Login/Login.vue'
 
@@ -49,6 +51,14 @@ const routes = [
     meta: {
       showTabbar: false
     }
+  },
+  {
+    path: '/u/:id',
+    component: User,
+  },
+  {
+    path: '/p/:id',
+    component: Post,
   },
 ]
 
