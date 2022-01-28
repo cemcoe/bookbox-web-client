@@ -16,7 +16,7 @@
 // <script setup> 范围里的值也能被直接作为自定义组件的标签名使用
 import { Form, Field, CellGroup } from 'vant';
 import { reactive } from 'vue';
-import { login } from 'network/user'
+import { login } from '../../network/user'
 import { useRouter } from 'vue-router'
 
 const user = reactive({

@@ -7,7 +7,7 @@ export function getUsersList() {
   )
 }
 
-export function login(user) {
+export function login(user: Object) {
   return request(
     '/v1/login',
     { method: "POST", data: user },
@@ -23,7 +23,7 @@ export function getOwnerInfo() {
 }
 
 // 获取用户信息
-export function getUserInfoAPI(id) {
+export function getUserInfoAPI(id: string) {
   return request(
     `/v1/user/${id}`,
     { method: "GET" }

@@ -23,19 +23,29 @@ import { marked } from "marked";
 
 
 const route = useRoute()
-const post = ref({})
+const post = ref({
+  title: '',
+  authorName: '',
+})
 let previewContent = ref('')
 
-const getPostDetail = async () => {
+// const getPostDetail = async () => {
+//   const result = await getPostDetailAPI(route.params.id)
+//   const { status } = result
+//   if (status === 200) {
+//     post.value = result.data.post
+//     previewContent.value = marked.parse(result.data.post.content)
+//   }
+// }
+
+onMounted(async () => {
   const result = await getPostDetailAPI(route.params.id)
   const { status } = result
   if (status === 200) {
     post.value = result.data.post
     previewContent.value = marked.parse(result.data.post.content)
   }
-}
-
-onMounted(getPostDetail())
+})
 </script>
 
 
