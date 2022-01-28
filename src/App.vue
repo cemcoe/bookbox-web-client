@@ -8,7 +8,7 @@ import MainTabBarVue from './components/content/MainTabBar/MainTabBar.vue';
 <template>
   <!-- <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" /> -->
   <RouterView></RouterView>
-  <MainTabBarVue></MainTabBarVue>
+  <MainTabBarVue v-if="$route.meta.showTabbar"></MainTabBarVue>
 </template>
 
 <style>
