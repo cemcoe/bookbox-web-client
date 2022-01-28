@@ -2,11 +2,13 @@
   "name": "vue3-vite-ts-demo",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "dev": "cross-env NODE_ENV=development vite",
+    "serve": "cross-env NODE_ENV=production vite",
+    "preview": "vite preview",
+    "build": "cross-env NODE_ENV=production vue-tsc --noEmit && vite build"
   },
   "dependencies": {
+    "cross-env": "^7.0.3",
     "marked": "^4.0.12",
     "vant": "^3.4.3",
     "vue": "^3.2.25",

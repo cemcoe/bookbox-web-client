@@ -1,5 +1,5 @@
-const BASE_URL = 'http://localhost:3001'
-// import { BASE_URL } from '../../config/global.js'
+// const BASE_URL = 'http://localhost:3001'
+import { BASE_URL } from '../../config/global'
 
 // Example POST method implementation:
 // TODO: 将公用的代码抽离
