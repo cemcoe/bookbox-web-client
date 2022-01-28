@@ -1,10 +1,13 @@
 <template>
-  <div>{{ postList[0] }}</div>
+  <div>
+    <bx-post-list :postList="postList"></bx-post-list>
+  </div>
 </template>
 <script setup lang="ts">
 
 import { ref, onMounted } from 'vue'
-import { getPostList } from '../../network/post.ts'
+import { getPostList } from '../../network/post'
+import BxPostList from '../../components/content/PostList/PostList.vue'
 
 let postList = ref([])
 
@@ -18,7 +21,6 @@ onMounted(async () => {
     // console.log(postList)
     postList.value = result.data.postList
   }
-
 })
 </script>
 <style>
