@@ -1,4 +1,6 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npm run prettier
+# npm run prettier
+# TODO: 检查代码格式
+
