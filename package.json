@@ -6,7 +6,8 @@
     "serve": "cross-env NODE_ENV=production vite",
     "preview": "vite preview",
     "build": "cross-env NODE_ENV=production vue-tsc --noEmit && vite build",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "prepare": "husky install"
   },
   "dependencies": {
     "cross-env": "^7.0.3",
@@ -22,6 +23,7 @@
     "prettier": "^2.5.1",
     "typescript": "^4.4.4",
     "vite": "^2.7.2",
-    "vue-tsc": "^0.29.8"
+    "vue-tsc": "^0.29.8",
+    "husky": "^7.0.0"
   }
 }
