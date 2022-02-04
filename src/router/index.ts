@@ -1,14 +1,14 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home/Home.vue'
-import Attention from '../views/Attention/Attention.vue'
-import Excellent from '../views/Excellent/Excellent.vue'
-import Message from '../views/Message/Message.vue'
-import Profile from '../views/Profile/Profile.vue'
-import User from '../views/User/User.vue'
-import Post from '../views/Post/Post.vue'
-import Editor from '../views/Editor/Editor.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import Home from '../views/Home/Home.vue';
+import Attention from '../views/Attention/Attention.vue';
+import Excellent from '../views/Excellent/Excellent.vue';
+import Message from '../views/Message/Message.vue';
+import Profile from '../views/Profile/Profile.vue';
+import User from '../views/User/User.vue';
+import Post from '../views/Post/Post.vue';
+import Editor from '../views/Editor/Editor.vue';
 
-import Login from '../views/Login/Login.vue'
+import Login from '../views/Login/Login.vue';
 
 const routes = [
   {
@@ -55,11 +55,11 @@ const routes = [
   },
   {
     path: '/u/:id',
-    component: User,
+    component: User
   },
   {
     path: '/p/:id',
-    component: Post,
+    component: Post
   },
   {
     path: '/editor/:pid',
@@ -68,12 +68,12 @@ const routes = [
   {
     path: '/editor',
     component: Editor
-  },
-]
+  }
+];
 
 const router = createRouter({
   history: createWebHistory(),
   routes
-})
+});
 
-export default router
+export default router;

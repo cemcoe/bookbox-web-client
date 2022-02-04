@@ -20,13 +20,13 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref } from 'vue';
 export default {
-  emits: ["insert", "saveToPrivatePost"],
+  emits: ['insert', 'saveToPrivatePost'],
   setup(props, content) {
     const insert = (val) => {
-      console.log("insert", val);
-      content.emit("insert", val);
+      console.log('insert', val);
+      content.emit('insert', val);
     };
 
     let { showMenu, switchMeunStatus, saveToPrivatePost } = useMenu(content);
@@ -35,30 +35,29 @@ export default {
       insert,
       switchMeunStatus,
       showMenu,
-      saveToPrivatePost,
+      saveToPrivatePost
     };
-  },
+  }
 };
 
 const useMenu = (content) => {
   let showMenu = ref(false);
 
   const switchMeunStatus = () => {
-    console.log("你点击了设置，为你切换菜单状态");
+    console.log('你点击了设置，为你切换菜单状态');
     showMenu.value = !showMenu.value;
   };
 
   const saveToPrivatePost = () => {
-    console.log('将文章保存为私密')
+    console.log('将文章保存为私密');
     // emit 交给主文件处理
-    content.emit('saveToPrivatePost')
-    
-  }
+    content.emit('saveToPrivatePost');
+  };
 
   return {
     showMenu,
     switchMeunStatus,
-    saveToPrivatePost,
+    saveToPrivatePost
   };
 };
 </script>

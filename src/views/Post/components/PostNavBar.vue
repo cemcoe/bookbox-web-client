@@ -11,19 +11,17 @@
 </template>
 
 <script setup>
-import NavBar from 'components/content/NavBar/NavBar.vue'
-import { useRouter } from 'vue-router'
+import NavBar from 'components/content/NavBar/NavBar.vue';
+import { useRouter } from 'vue-router';
 
-const router = useRouter()
+const router = useRouter();
 const goBack = () => {
-  router.back()
-}
+  router.back();
+};
 
 const gotoEditor = () => {
-  router.push('/editor/1')
-}
-
+  router.push('/editor/1');
+};
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

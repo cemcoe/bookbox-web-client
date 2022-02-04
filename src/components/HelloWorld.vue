@@ -1,15 +1,14 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from 'vue';
 
 // defineProps<{ msg: string }>()
 defineProps({
   msg: {
-    type: String,
+    type: String
   }
-})
+});
 
-
-const count = ref(0)
+const count = ref(0);
 </script>
 
 <template>
@@ -17,6 +16,4 @@ const count = ref(0)
   <button type="button" @click="count++">count is: {{ count }}</button>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

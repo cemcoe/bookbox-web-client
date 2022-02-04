@@ -12,48 +12,57 @@
       <div v-html="state.previewContent"></div>
     </div>
     <div class="content" v-show="!state.isPreview">
-      <input v-model="post.title" type="text" id="title" placeholder="请输入标题" />
-      <textarea v-model="post.content" name="post" id="post" placeholder="请输入正文"></textarea>
+      <input
+        v-model="post.title"
+        type="text"
+        id="title"
+        placeholder="请输入标题"
+      />
+      <textarea
+        v-model="post.content"
+        name="post"
+        id="post"
+        placeholder="请输入正文"
+      ></textarea>
     </div>
   </div>
   <editor-pannel @insert="insert"></editor-pannel>
 </template>
 
-
 <script setup>
 import { onMounted, reactive } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 import { createPost, getPostDetailAPI, updatePostApi } from 'network/post';
-import EditorHeader from './EditorHeader.vue'
+import EditorHeader from './EditorHeader.vue';
 import EditorPannel from './EditorPannel.vue';
-import useInsertText from "./useInsertText.js";
+import useInsertText from './useInsertText.js';
 // marked 4 更改了引入方式，marked 1 (import marked from "marked";)
 // https://marked.js.org/#usage 解析方式也发生了变化
-import { marked } from "marked";
+import { marked } from 'marked';
 
-const router = useRouter()
-const route = useRoute()
-const { pid } = route.params
+const router = useRouter();
+const route = useRoute();
+const { pid } = route.params;
 
 const getPostDetail = async (pid) => {
-  const result = await getPostDetailAPI(pid)
-  const { status } = result
+  const result = await getPostDetailAPI(pid);
+  const { status } = result;
   if (status === 200) {
-    return result.data.post
+    return result.data.post;
     // post.value = result.data.post
     // previewContent.value = marked.parse(result.data.post.content)
   }
-}
+};
 
 const post = reactive({
   title: '',
-  content: '',
-})
+  content: ''
+});
 
 const state = reactive({
   isPreview: false,
-  previewContent: "",
-})
+  previewContent: ''
+});
 
 const goBack = () => {
   // 如果在预览状态下点击，则切换为编辑状态
@@ -66,51 +75,48 @@ const goBack = () => {
 };
 
 const publish = async () => {
-  const result = await createPost(post)
-  console.log(result)
-  const { status } = result
+  const result = await createPost(post);
+  console.log(result);
+  const { status } = result;
   if (status === 200) {
-    router.back()
+    router.back();
   }
-}
+};
 
 const update = async () => {
-  const result = await updatePostApi(pid, post)
-  console.log(result, 'update')
-  const { status } = result
+  const result = await updatePostApi(pid, post);
+  console.log(result, 'update');
+  const { status } = result;
   if (status === 200) {
-    router.back()
+    router.back();
   }
-}
-
+};
 
 const preview = () => {
   state.isPreview = true;
   // console.log(marked, 'marked')
   state.previewContent = marked.parse(post.content);
-}
-
-const insert = (value) => {
-  console.log("insert", value);
-  const dom = document.querySelector("#post");
-  useInsertText(dom, value);
 };
 
+const insert = (value) => {
+  console.log('insert', value);
+  const dom = document.querySelector('#post');
+  useInsertText(dom, value);
+};
 
 const init = async (pid) => {
   // 检查是否是新文章，如果带参数，则要根据pid查文章内容
   if (pid) {
     // 根据pid找文章内容
-    const result = await getPostDetail(pid)
-    post.title = result.title
-    post.content = result.content
+    const result = await getPostDetail(pid);
+    post.title = result.title;
+    post.content = result.content;
   } else {
     // 新文章啥也不干
   }
-}
+};
 
-onMounted(init(pid))
-
+onMounted(init(pid));
 </script>
 
 <style>

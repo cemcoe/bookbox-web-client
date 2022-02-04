@@ -19,8 +19,7 @@
 </template>
 
 <script setup>
-import NavBar from 'components/content/NavBar/NavBar.vue'
-
+import NavBar from 'components/content/NavBar/NavBar.vue';
 </script>
 
 <style scoped>
@@ -28,7 +27,6 @@ import NavBar from 'components/content/NavBar/NavBar.vue'
   width: 100%;
   border: 0px;
   border-radius: 2px;
-
 
   padding: 8px;
   outline-style: none;

@@ -10,8 +10,8 @@ This template should help get you started developing with Vue 3 and Typescript i
 
 Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's `.vue` type support plugin by running `Volar: Switch TS Plugin on/off` from VSCode command palette.
 
-
 ## 命令
+
 ```
 "dev": "开发环境",
 "serve": "正式环境",
@@ -22,12 +22,11 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 "commit": "commit提交"
 ```
 
-
 ## 关于规范以及工程化
+
 - 请使用 npm run commit 提交信息，对于使用 git commit 提交的不符合格式的信息将会拦截
 - 代码美化使用的是 prettier
-- TODO: 添加lint检查
-
+- TODO: 添加 lint 检查
 
 选择 type，本次更新的类型
 

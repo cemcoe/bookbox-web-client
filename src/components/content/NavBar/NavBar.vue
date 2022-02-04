@@ -18,20 +18,19 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue'
+import { defineProps } from 'vue';
 
 const props = defineProps({
   // 如果有值就不是插槽模式
   leftArrow: {
     type: Boolean,
-    default: false,
+    default: false
   },
   title: {
     type: String,
-    default: '',
+    default: ''
   }
-})
-
+});
 </script>
 
 <style scoped>

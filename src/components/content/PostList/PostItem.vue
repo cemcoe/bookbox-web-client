@@ -5,7 +5,9 @@
         <!-- <img src="" alt="avatar"> -->
       </div>
       <div class="author-name">
-        <router-link :to="'/u/' + post.authorId">{{ post.authorName }}</router-link>
+        <router-link :to="'/u/' + post.authorId">{{
+          post.authorName
+        }}</router-link>
       </div>
     </div>
     <div class="title">
@@ -25,15 +27,14 @@
 
 <script setup>
 // PostList.vue
-import { defineProps } from 'vue'
+import { defineProps } from 'vue';
 
 const props = defineProps({
   post: Object,
   author: {
     // 是否需要author模块
     type: Boolean,
-    default: true,
-
+    default: true
   },
   // TODO: 头像可调大小 meta可动态配置
   meta: {
@@ -41,12 +42,10 @@ const props = defineProps({
     default: {
       // 是否展示个meta
       authorName: true,
-      viewCount: true,
+      viewCount: true
     }
-  },
-
-})
-
+  }
+});
 </script>
 
 <style scoped>

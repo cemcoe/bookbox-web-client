@@ -14,42 +14,42 @@
 
 <script>
 export default {
-  emits: ["goBack", "preview", "publish", "update"],
+  emits: ['goBack', 'preview', 'publish', 'update'],
   props: {
     isNewPost: {
-      type: Boolean,
+      type: Boolean
     },
     wordcount: {
-      type: Number,
-    },
+      type: Number
+    }
   },
   setup(props, content) {
     const goBack = () => {
-      content.emit("goBack");
+      content.emit('goBack');
     };
 
     const preview = () => {
-      console.log("preview click");
-      content.emit("preview");
+      console.log('preview click');
+      content.emit('preview');
     };
 
     const publish = () => {
-      console.log("publish click");
-      content.emit("publish");
+      console.log('publish click');
+      content.emit('publish');
     };
 
     const update = () => {
-      console.log("update click");
-      content.emit("update");
+      console.log('update click');
+      content.emit('update');
     };
 
     return {
       goBack,
       preview,
       publish,
-      update,
+      update
     };
-  },
+  }
 };
 </script>
 

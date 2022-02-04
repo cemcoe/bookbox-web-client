@@ -33,41 +33,38 @@
 </template>
 
 <script setup>
-import { onMounted, reactive } from 'vue'
+import { onMounted, reactive } from 'vue';
 import { Grid, GridItem } from 'vant';
 import { Col, Row } from 'vant';
 import { Divider } from 'vant';
-import NavBar from '../../components/content/NavBar/NavBar.vue'
+import NavBar from '../../components/content/NavBar/NavBar.vue';
 
-
-import { useRouter } from 'vue-router'
+import { useRouter } from 'vue-router';
 import { getOwnerInfo } from '../../network/user';
-const router = useRouter()
+const router = useRouter();
 
 const goToLogin = () => {
   // 检查是否拿到用户信息，如果已经登录跳转到对应的用户页面
-  const path = user.id ? '/u/' + user.id : '/login'
-  router.push(path)
-}
-
+  const path = user.id ? '/u/' + user.id : '/login';
+  router.push(path);
+};
 
 let user = reactive({
   id: 0,
-  name: '',
-})
+  name: ''
+});
 
 onMounted(async () => {
-  const result = await getOwnerInfo()
+  const result = await getOwnerInfo();
   // console.log(result)
-  const { status } = result
+  const { status } = result;
 
   if (status === 200) {
     // user = result.data // 此操作会丢失响应式
-    user.name = result.data.name
-    user.id = result.data.id
+    user.name = result.data.name;
+    user.id = result.data.id;
   }
-})
-
+});
 </script>
 
 <style>

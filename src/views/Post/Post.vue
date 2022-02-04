@@ -13,21 +13,19 @@
   </div>
 </template>
 
-
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { getPostDetailAPI } from '../../network/post';
-import PostNavBar from './components/PostNavBar.vue'
-import { marked } from "marked";
+import PostNavBar from './components/PostNavBar.vue';
+import { marked } from 'marked';
 
-
-const route = useRoute()
+const route = useRoute();
 const post = ref({
   title: '',
-  authorName: '',
-})
-let previewContent = ref('')
+  authorName: ''
+});
+let previewContent = ref('');
 
 // const getPostDetail = async () => {
 //   const result = await getPostDetailAPI(route.params.id)
@@ -39,15 +37,14 @@ let previewContent = ref('')
 // }
 
 onMounted(async () => {
-  const result = await getPostDetailAPI(route.params.id)
-  const { status } = result
+  const result = await getPostDetailAPI(route.params.id);
+  const { status } = result;
   if (status === 200) {
-    post.value = result.data.post
-    previewContent.value = marked.parse(result.data.post.content)
+    post.value = result.data.post;
+    previewContent.value = marked.parse(result.data.post.content);
   }
-})
+});
 </script>
-
 
 <style scoped>
 .title {
@@ -69,4 +66,3 @@ onMounted(async () => {
   line-height: 26px;
 }
 </style>
-

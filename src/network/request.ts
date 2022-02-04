@@ -1,5 +1,5 @@
 // const BASE_URL = 'http://localhost:3001'
-import { BASE_URL } from '../../config/global'
+import { BASE_URL } from '../../config/global';
 
 // Example POST method implementation:
 // TODO: 将公用的代码抽离
@@ -8,7 +8,7 @@ import { BASE_URL } from '../../config/global'
 interface IOptions {
   method: string;
   data?: any; // 我暂时还不知道这货是啥类型
-  [propName: string]: any // 可以添加任意的属性
+  [propName: string]: any; // 可以添加任意的属性
 }
 
 interface IResponse {
@@ -16,14 +16,12 @@ interface IResponse {
   json: any; // 如何定义函数
 }
 
-
-export async function request(url = '', options: IOptions = { method: "GET" }) {
-
+export async function request(url = '', options: IOptions = { method: 'GET' }) {
   // 拼接完整的请求地址
-  url = BASE_URL + url
-  const { method } = options
+  url = BASE_URL + url;
+  const { method } = options;
 
-  console.log(options, 'options')
+  console.log(options, 'options');
 
   // GET 请求
   if (method === 'GET') {
@@ -35,13 +33,12 @@ export async function request(url = '', options: IOptions = { method: "GET" }) {
       headers: {
         'Content-Type': 'application/json',
         // 'Content-Type': 'application/x-www-form-urlencoded',
-        "Authorization": `Bearer ${localStorage.getItem('token')}`
+        Authorization: `Bearer ${localStorage.getItem('token')}`
       },
       redirect: 'follow', // manual, *follow, error
-      referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+      referrerPolicy: 'no-referrer' // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
       // body: JSON.stringify(data) // body data type must match "Content-Type" header
-    }
-    );
+    });
     return response.json(); // parses JSON response into native JavaScript objects
   }
 
@@ -55,13 +52,12 @@ export async function request(url = '', options: IOptions = { method: "GET" }) {
       headers: {
         'Content-Type': 'application/json',
         // 'Content-Type': 'application/x-www-form-urlencoded',
-        "Authorization": `Bearer ${localStorage.getItem('token')}`
+        Authorization: `Bearer ${localStorage.getItem('token')}`
       },
       redirect: 'follow', // manual, *follow, error
       referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
       body: JSON.stringify(options.data) // body data type must match "Content-Type" header
-    }
-    );
+    });
     return response.json(); // parses JSON response into native JavaScript objects
   }
 }
