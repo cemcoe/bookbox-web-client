@@ -32,17 +32,16 @@ const props = defineProps({
 const router = useRouter();
 const route = useRoute();
 const state = reactive({
-  isActive: computed(() => {
-    return route.path.indexOf(props.path) !== -1;
-  }),
-  activeStyle: computed(() => {
-    return state.isActive
-      ? {
-          color: props.activeColor
-        }
-      : {};
-  })
+  isActive: false,
+  activeStyle: {}
 });
+
+state.isActive = route.path.indexOf(props.path) !== -1;
+state.activeStyle = state.isActive ? { color: props.activeColor } : {};
+
+// : computed(() => {
+//     return route.path.indexOf(props.path) !== -1;
+//   })
 // const isActive = route.path.indexOf(props.path) !== -1;
 // const activeStyle = isActive ? { color: props.activeColor } : {};
 
