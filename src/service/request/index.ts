@@ -80,11 +80,12 @@ class BXRequest {
         .then((response) => response.json())
         .then((res) => {
           console.log(res);
-          const { status, data } = res;
+          const { status } = res;
           if (status === 200) {
             // TODO: resolve res VS data?
             resolve(res);
           } else {
+            reject(res);
             console.log(status);
             // TODO: 什么情况下reject出去比较好 要不要reject
             // https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch

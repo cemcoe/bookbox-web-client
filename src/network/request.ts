@@ -7,12 +7,15 @@ import { BASE_URL } from '../../config/global';
 // 约束对象必须要具有某个属性
 interface IOptions {
   method: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data?: any; // 我暂时还不知道这货是啥类型
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [propName: string]: any; // 可以添加任意的属性
 }
 
 interface IResponse {
   status: number;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   json: any; // 如何定义函数
 }
 

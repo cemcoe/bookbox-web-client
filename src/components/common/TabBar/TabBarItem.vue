@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps, computed, reactive } from 'vue';
+import { defineProps, reactive } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 const props = defineProps({
   path: {

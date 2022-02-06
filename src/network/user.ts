@@ -4,6 +4,7 @@ export function getUsersList() {
   return request('/v1/users', { method: 'GET' });
 }
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 export function login(user: Object) {
   return request('/v1/login', { method: 'POST', data: user });
 }

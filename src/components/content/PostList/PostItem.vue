@@ -5,19 +5,19 @@
         <!-- <img src="" alt="avatar"> -->
       </div>
       <div class="author-name">
-        <router-link :to="'/u/' + post.authorId">{{
-          post.authorName
+        <router-link :to="'/u/' + post?.authorId">{{
+          post?.authorName
         }}</router-link>
       </div>
     </div>
     <div class="title">
-      <router-link :to="'/p/' + post.id">{{ post.title }}</router-link>
+      <router-link :to="'/p/' + post?.id">{{ post?.title }}</router-link>
     </div>
     <div class="abstract">
-      <router-link :to="'/p/' + post.id">{{ post.abstract }}</router-link>
+      <router-link :to="'/p/' + post?.id">{{ post?.abstract }}</router-link>
     </div>
     <div class="meta">
-      <span class="meta-item">{{ post.authorName }}</span>
+      <span class="meta-item">{{ post?.authorName }}</span>
       <span class="meta-item" v-if="meta.viewCount">0 阅读</span>
       <span class="meta-item">0 评论</span>
       <span class="meta-item">0 赞</span>
@@ -25,12 +25,23 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 // PostList.vue
-import { defineProps } from 'vue';
+import { defineProps, PropType } from 'vue';
 
-const props = defineProps({
-  post: Object,
+interface IPost {
+  id: string;
+  title: string;
+  abstract: string;
+  authorId: string;
+  authorName: string;
+  viewCount: number;
+  commentCount: number;
+  likeCount: number;
+}
+
+defineProps({
+  post: { type: Object as PropType<IPost>, required: true },
   author: {
     // 是否需要author模块
     type: Boolean,
@@ -39,11 +50,15 @@ const props = defineProps({
   // TODO: 头像可调大小 meta可动态配置
   meta: {
     type: Object,
-    default: {
-      // 是否展示个meta
+    default: () => ({
       authorName: true,
       viewCount: true
-    }
+    })
+    // default: {
+    //   // 是否展示个meta
+    //   authorName: true,
+    //   viewCount: true
+    // }
   }
 });
 </script>

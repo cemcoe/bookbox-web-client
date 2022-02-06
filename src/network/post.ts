@@ -5,6 +5,7 @@ export function getPostList() {
 }
 
 // 创建文章
+// eslint-disable-next-line @typescript-eslint/ban-types
 export function createPost(post: Object) {
   return request('/v1/post', { method: 'POST', data: post });
 }
@@ -15,6 +16,7 @@ export function getPostDetailAPI(id: string | string[]) {
 }
 
 // 更新文章
+// eslint-disable-next-line @typescript-eslint/ban-types
 export function updatePostApi(id: number, post: Object) {
   console.log(id, post, 'resuest');
   return request(`/v1/post/${id}`, { method: 'PUT', data: post });
