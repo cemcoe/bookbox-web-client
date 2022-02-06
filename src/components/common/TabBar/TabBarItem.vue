@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps, reactive } from 'vue';
+import { defineProps, reactive, watchEffect } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 const props = defineProps({
   path: {
@@ -36,8 +36,14 @@ const state = reactive({
   activeStyle: {}
 });
 
-state.isActive = route.path.indexOf(props.path) !== -1;
-state.activeStyle = state.isActive ? { color: props.activeColor } : {};
+// state.isActive = route.path.indexOf(props.path) !== -1;
+
+// state.activeStyle = state.isActive ? { color: props.activeColor } : {};
+
+watchEffect(() => {
+  state.isActive = route.path.indexOf(props.path) !== -1;
+  state.activeStyle = state.isActive ? { color: props.activeColor } : {};
+});
 
 // : computed(() => {
 //     return route.path.indexOf(props.path) !== -1;
