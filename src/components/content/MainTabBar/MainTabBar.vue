@@ -1,20 +1,71 @@
 <template>
   <div>
-    <van-tabbar route>
-      <van-tabbar-item replace to="/" icon="home-o">首页</van-tabbar-item>
-      <van-tabbar-item replace to="/attention" icon="search"
-        >关注</van-tabbar-item
-      >
-      <van-tabbar-item replace to="/excellent" icon="search"
-        >优选</van-tabbar-item
-      >
-      <van-tabbar-item replace to="/message" icon="search"
-        >消息</van-tabbar-item
-      >
-      <van-tabbar-item replace to="/profile" icon="search"
-        >我的</van-tabbar-item
-      >
-    </van-tabbar>
+    <tab-bar>
+      <tab-bar-item path="/home">
+        <template v-slot:item-icon>
+          <img src="./tabbar/home.svg" />
+        </template>
+
+        <template v-slot:item-icon-active>
+          <img src="./tabbar/home_active.svg" />
+        </template>
+        <template v-slot:item-text>
+          <div>首页</div>
+        </template>
+      </tab-bar-item>
+      <tab-bar-item path="/attention">
+        <template v-slot:item-icon>
+          <img src="./tabbar/following.svg" />
+        </template>
+
+        <template v-slot:item-icon-active>
+          <img src="./tabbar/following_active.svg" />
+        </template>
+        <template v-slot:item-text>
+          <div>attention</div>
+        </template>
+      </tab-bar-item>
+      <tab-bar-item path="/excellent">
+        <template v-slot:item-icon>
+          <img src="./tabbar/island.svg" />
+        </template>
+
+        <template v-slot:item-icon-active>
+          <img src="./tabbar/island_active.svg" />
+        </template>
+        <template v-slot:item-text>
+          <div>excellent</div>
+        </template>
+      </tab-bar-item>
+      <tab-bar-item path="/message">
+        <template v-slot:item-icon>
+          <img src="./tabbar/message.svg" />
+        </template>
+
+        <template v-slot:item-icon-active>
+          <img src="./tabbar/message_active.svg" />
+        </template>
+        <template v-slot:item-text>
+          <div>message</div>
+        </template>
+      </tab-bar-item>
+      <tab-bar-item path="/profile">
+        <template v-slot:item-icon>
+          <img src="./tabbar/profile.svg" />
+        </template>
+
+        <template v-slot:item-icon-active>
+          <img src="./tabbar/profile_active.svg" />
+        </template>
+        <template v-slot:item-text>
+          <div>profile</div>
+        </template>
+      </tab-bar-item>
+    </tab-bar>
   </div>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import TabBar from '../../common/TabBar/TabBar.vue';
+import TabBarItem from '../../common/TabBar/TabBarItem.vue';
+</script>
+<style lang=""></style>
