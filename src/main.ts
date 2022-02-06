@@ -6,6 +6,9 @@ import router from './router';
 import Vant from 'vant';
 import 'vant/lib/index.css';
 
+import './assets/css/reset.css';
+import './assets/css/values.css';
+
 import BXRequest from './service';
 BXRequest.request('/v1/posts').then((res) => {
   console.log(res, 'main');
