@@ -12,8 +12,8 @@
   </nav-bar>
 </template>
 
-<script setup>
-import NavBar from 'components/content/NavBar/NavBar.vue';
+<script setup lang="ts">
+import NavBar from '../../../components/content/NavBar/NavBar.vue';
 import BxIcon from 'components/common/BxIcon/BxIcon.vue';
 import { useRouter } from 'vue-router';
 

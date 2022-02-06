@@ -18,8 +18,11 @@
   </nav-bar>
 </template>
 
-<script setup>
-import NavBar from 'components/content/NavBar/NavBar.vue';
+<script setup lang="ts">
+// import NavBar from 'components/content/NavBar/NavBar.vue';
+// Element implicitly has an 'any' type because expression of type '"right"' can't be used to index type '{} | {}'.
+//   Property 'right' does not exist on type '{} | {}'.ts(7053)
+import NavBar from '../../../components/content/NavBar/NavBar.vue';
 </script>
 
 <style scoped>
