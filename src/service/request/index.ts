@@ -61,18 +61,22 @@
 class BXRequest {
   // TS 特有语法，你要定义
   BASE_URL: string;
+  init?: RequestInit;
   // 类的构造方法
-  constructor(BASE_URL: string) {
+  constructor(BASE_URL: string, init?: RequestInit) {
     // const BASE_URL = 'https://api.cemcoe.com';
     this.BASE_URL = BASE_URL;
+    this.init = init;
     // fetch(`${BASE_URL}${url}`)
     //   .then((response) => response.json())
     //   .then((data) => console.log(data));
   }
   // 类的一般方法
-  request(url: string) {
+  request(input: RequestInfo, init?: RequestInit) {
+    // 将两个init合并
+    init = { ...this.init, ...init };
     return new Promise((resolve, reject) => {
-      fetch(`${this.BASE_URL}${url}`)
+      fetch(`${this.BASE_URL}${input}`, init)
         .then((response) => response.json())
         .then((res) => {
           console.log(res);
