@@ -6,4 +6,8 @@ import router from './router';
 import Vant from 'vant';
 import 'vant/lib/index.css';
 
+import BXRequest from './service';
+const res = await BXRequest.request('/v1/posts');
+console.log(res, 'main');
+
 createApp(App).use(router).use(Vant).mount('#app');
