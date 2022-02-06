@@ -1,11 +1,12 @@
 {
-  "name": "vue3-vite-ts-demo",
+  "name": "book-web-app",
   "version": "0.0.0",
   "scripts": {
     "dev": "cross-env NODE_ENV=development vite",
     "serve": "cross-env NODE_ENV=production vite",
     "preview": "vite preview",
     "build": "cross-env NODE_ENV=production vue-tsc --noEmit && vite build",
+    "lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore --fix src",
     "prettier": "prettier --write .",
     "prepare": "husky install",
     "commit": "cz"

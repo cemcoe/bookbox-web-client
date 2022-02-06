@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home/Home.vue';
-import Attention from '../views/Attention/Attention.vue';
-import Excellent from '../views/Excellent/Excellent.vue';
-import Message from '../views/Message/Message.vue';
+import Attention from '../views/Attention/AttentionView.vue';
+import Excellent from '../views/Excellent/ExcellentView.vue';
+import Message from '../views/Message/MessageView.vue';
 import Profile from '../views/Profile/Profile.vue';
-import User from '../views/User/User.vue';
+import User from '../views/User/UserView.vue';
 import Post from '../views/Post/Post.vue';
 import Editor from '../views/Editor/Editor.vue';
 
