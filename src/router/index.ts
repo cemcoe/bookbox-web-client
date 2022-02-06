@@ -12,11 +12,15 @@ import Login from '../views/Login/Login.vue';
 
 const routes = [
   {
-    path: '/',
+    path: '/home',
     component: Home,
     meta: {
       showTabbar: true
     }
+  },
+  {
+    path: '/',
+    redirect: '/home'
   },
   {
     path: '/attention',
