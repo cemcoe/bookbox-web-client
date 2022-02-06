@@ -1,7 +1,9 @@
 <template>
   <nav-bar>
     <template v-slot:left>
-      <p @click="goBack">back</p>
+      <p @click="goBack">
+        <BxIcon name="arrow-left"></BxIcon>
+      </p>
     </template>
     <template v-slot:center>文章</template>
     <template v-slot:right>
@@ -12,6 +14,7 @@
 
 <script setup>
 import NavBar from 'components/content/NavBar/NavBar.vue';
+import BxIcon from 'components/common/BxIcon/BxIcon.vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
