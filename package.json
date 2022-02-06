@@ -1,6 +1,6 @@
 {
   "name": "book-web-app",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "dev": "cross-env NODE_ENV=development vite",
     "serve": "cross-env NODE_ENV=production vite",
@@ -14,7 +14,6 @@
   "dependencies": {
     "cross-env": "^7.0.3",
     "marked": "^4.0.12",
-    "vant": "^3.4.3",
     "vue": "^3.2.25",
     "vue-router": "^4.0.12"
   },

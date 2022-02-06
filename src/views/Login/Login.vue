@@ -1,25 +1,22 @@
 <template>
   <div class="login">
-    <form>
-      <cell-group inset>
-        <field
-          v-model="user.name"
-          name="用户名"
-          label="用户名"
-          placeholder="用户名"
-        />
-        <field
-          v-model="user.password"
-          type="password"
-          name="密码"
-          label="密码"
-          placeholder="密码"
-        />
-      </cell-group>
-      <div style="margin: 16px">
-        <van-button round block type="primary" @click="onSubmit"
-          >登陆</van-button
-        >
+    <form
+      @submit.prevent="
+        () => {
+          return false;
+        }
+      "
+    >
+      <div class="name">
+        <label for="name">账号:</label>
+        <input type="text" id="name" v-model="user.name" />
+      </div>
+      <div class="password">
+        <label for="password">密码:</label>
+        <input type="password" id="password" v-model="user.password" />
+      </div>
+      <div class="submit">
+        <button @click="onSubmit">登录</button>
       </div>
     </form>
   </div>
@@ -27,7 +24,6 @@
 
 <script setup lang="ts">
 // <script setup> 范围里的值也能被直接作为自定义组件的标签名使用
-import { Field, CellGroup } from 'vant';
 import { reactive } from 'vue';
 import { login } from '../../network/user';
 import { useRouter } from 'vue-router';
