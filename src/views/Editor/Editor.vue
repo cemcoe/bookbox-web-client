@@ -29,13 +29,16 @@
   <editor-pannel @insert="insert"></editor-pannel>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { onMounted, reactive } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
-import { createPost, getPostDetailAPI, updatePostApi } from 'network/post';
+import { createPost, getPostDetailAPI } from '../../network/post';
+
+import { updatePostApi } from '../../service/post';
+
 import EditorHeader from './EditorHeader.vue';
 import EditorPannel from './EditorPannel.vue';
-import useInsertText from './useInsertText.js';
+import useInsertText from './useInsertText';
 // marked 4 更改了引入方式，marked 1 (import marked from "marked";)
 // https://marked.js.org/#usage 解析方式也发生了变化
 import { marked } from 'marked';
