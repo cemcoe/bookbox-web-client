@@ -47,7 +47,7 @@ const router = useRouter();
 const route = useRoute();
 const { pid } = route.params;
 
-const getPostDetail = async (pid) => {
+const getPostDetail = async (pid: string | string[]) => {
   const result = await getPostDetailAPI(pid);
   const { status } = result;
   if (status === 200) {
@@ -87,7 +87,8 @@ const publish = async () => {
 };
 
 const update = async () => {
-  const result = await updatePostApi(pid, post);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const result: any = await updatePostApi(pid, post);
   console.log(result, 'update');
   const { status } = result;
   if (status === 200) {
@@ -101,13 +102,14 @@ const preview = () => {
   state.previewContent = marked.parse(post.content);
 };
 
-const insert = (value) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const insert = (value: any) => {
   console.log('insert', value);
   const dom = document.querySelector('#post');
   useInsertText(dom, value);
 };
 
-const init = async (pid) => {
+const init = async (pid: string | string[]) => {
   // 检查是否是新文章，如果带参数，则要根据pid查文章内容
   if (pid) {
     // 根据pid找文章内容
@@ -119,7 +121,9 @@ const init = async (pid) => {
   }
 };
 
-onMounted(init(pid));
+onMounted((): void => {
+  init(pid);
+});
 </script>
 
 <style>
